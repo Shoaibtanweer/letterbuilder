@@ -96,7 +96,7 @@ body.dark-mode .dropdown-content a:hover {
   padding: 1rem 0;
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap; /* added for responsiveness */
+ /* flex-wrap: wrap;  added for responsiveness i add today 19 remove this*/
 }
 
 .logo {
@@ -106,7 +106,7 @@ body.dark-mode .dropdown-content a:hover {
 
 .nav-links {
   list-style: none;
-  display: none;/*flex*/
+  display: flex;
   align-items: center; /* Align items vertically */
 }
 
