@@ -1,0 +1,546 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%; /* Ensure html takes full height */
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex; /* Added for sticky footer */
+  flex-direction: column; /* Added for sticky footer */
+  min-height: 100vh; /* Changed from height: 100% for better compatibility */
+}
+
+/* Light Mode (Default) */
+body.light-mode {
+  background: #f9fafb;
+  color: #111827;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #111827; /* Dark background */
+  color: #f9fafb; /* Light text */
+}
+
+body.dark-mode .header {
+  background-color: #1f2937; /* Keep header dark, or choose a slightly different shade if needed */
+  /* color: white; already white */
+}
+
+body.dark-mode .card {
+  background: #1f2937; /* Darker card background */
+  color: #f9fafb; /* Light text on cards */
+  box-shadow: 0 10px 15px rgba(0,0,0,0.3); /* Adjusted shadow for dark mode */
+}
+
+body.dark-mode .card:hover {
+  background: #374151; /* Slightly lighter hover for dark cards */
+}
+
+body.dark-mode footer.footer {
+  background: #1f2937;
+  color: #f9fafb;
+}
+
+body.dark-mode .search-section input {
+  background-color: #374151;
+  color: #f9fafb;
+  border-color: #4b5563;
+}
+
+body.dark-mode .search-section input::placeholder {
+  color: #9ca3af;
+}
+
+body.dark-mode .search-section button {
+  background-color: #3b82f6; /* Keep button color or adjust */
+}
+
+body.dark-mode .search-section .text-blue-900 {
+    color: #60a5fa; /* Lighter blue for dark mode */
+}
+
+body.dark-mode .dropdown-content {
+    background-color: #1f2937; /* Dark dropdown */
+}
+
+body.dark-mode .dropdown-content a {
+    color: #f9fafb; /* Light text in dark dropdown */
+}
+
+body.dark-mode .dropdown-content a:hover {
+    background-color: #374151;
+}
+
+.header {
+  background-color: #1f2937;
+  color: white;
+  padding: 0 1rem; 
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+.nav-links li {
+  margin-left: 1.5rem; /* Adjusted margin */
+}
+
+.nav-links a,
+.nav-links .dropbtn {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+  padding: 0.5rem;
+  display: block;
+}
+
+.nav-links a:hover,
+.nav-links .dropbtn:hover {
+  color: #9ca3af;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1; /* Light mode dropdown background */
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  margin-top: 5px; /* Space between button and dropdown */
+  max-height: 300px; /* Added: Maximum height before scrolling */
+  overflow-y: auto; /* Added: Enable vertical scrolling */
+}
+
+.dropdown-content a {
+  color: black; /* Light mode dropdown text */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropbtn .fa-chevron-down {
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+/* Dark mode toggle button */
+.dark-mode-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.dark-mode-button:hover {
+  color: #9ca3af;
+}
+
+.hero-content {
+    padding: 2rem 1rem; 
+}
+
+.hamburger-menu {
+  display: none; 
+  cursor: pointer;
+}
+
+.hamburger-menu .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  flex-grow: 1; /* Added for sticky footer - makes main content take available space */
+}
+
+/* Search Section Styles */
+.search-section {
+    margin-bottom: 2rem;
+}
+
+.search-section .text-center { text-align: center; }
+.search-section .text-3xl { font-size: 1.875rem; }
+.search-section .font-bold { font-weight: 700; }
+.search-section .text-blue-900 { color: #1e3a8a; }
+body.light-mode .search-section .text-blue-900 { color: #1e3a8a; }
+body.dark-mode .search-section .text-blue-900 { color: #60a5fa; }
+.search-section .mb-6 { margin-bottom: 1.5rem; }
+.search-section .max-w-xl { max-width: 36rem; }
+.search-section .mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Styles for the form container to achieve combined look */
+.search-section form {
+    display: flex; /* Keeps input and button on one line */
+    align-items: center; /* Vertically aligns items */
+    border: 1px solid #d1d5db; /* Border for the combined unit - light mode */
+    border-radius: 0.375rem; /* Rounded corners for the combined unit */
+    overflow: hidden; /* Ensures children don't break the rounded corners */
+    /* focus-within styles for the form itself */
+    transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.search-section form:focus-within {
+    border-color: #2563eb; /* Blue border on focus - light mode */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4); /* Ring effect - light mode */
+}
+
+/* Dark mode styles for the form container */
+body.dark-mode .search-section form {
+    border-color: #4b5563; /* Dark mode border */
+}
+
+body.dark-mode .search-section form:focus-within {
+    border-color: #3b82f6; /* Blue border on focus - dark mode */
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.4); /* Ring effect - dark mode */
+}
+
+/* Input field styles */
+.search-section input[type="search"],
+.search-section #search-input {
+    flex-grow: 1; /* Takes up available space */
+    padding: 0.75rem 1rem; /* py-3 px-4 */
+    border: none; /* Remove individual border */
+    outline: none; /* Remove default outline, focus handled by form */
+    font-size: 1rem;
+    background-color: transparent; /* Make input background transparent to show form's bg */
+    color: #111827; /* Text color - light mode */
+}
+
+.search-section input[type="search"]::placeholder {
+    color: #9ca3af; /* Placeholder color - light mode */
+}
+
+/* Dark mode input field styles */
+body.dark-mode .search-section input[type="search"],
+body.dark-mode .search-section #search-input {
+    color: #f9fafb; /* Text color - dark mode */
+}
+
+body.dark-mode .search-section input[type="search"]::placeholder {
+    color: #6b7280; /* Placeholder color - dark mode */
+}
+
+/* Button styles */
+.search-section button {
+    padding: 0.75rem 1.25rem; /* py-3 px-5 */
+    border: none; /* Remove individual border */
+    background-color: #1e3a8a; /* bg-blue-900 - light mode */
+    color: white;
+    cursor: pointer;
+    outline: none; /* Remove default outline */
+    /* Remove margin-top if it was there from generic button styles */
+    margin-top: 0;
+    border-top-left-radius: 0; /* Ensure no rounding on the side touching input */
+    border-bottom-left-radius: 0; /* Ensure no rounding on the side touching input */
+    border-top-right-radius: 0.275rem; /* Match form's rounding */
+    border-bottom-right-radius: 0.275rem; /* Match form's rounding */
+    transition: background-color 0.2s ease-in-out;
+}
+
+.search-section button:hover {
+    background-color: #1e40af; /* hover:bg-blue-800 - light mode */
+}
+
+/* Dark mode button styles */
+body.dark-mode .search-section button {
+    background-color: #2563eb; /* A slightly brighter blue for dark mode button */
+}
+
+body.dark-mode .search-section button:hover {
+    background-color: #1d4ed8;
+}
+
+.search-section button i.fas {
+    font-size: 1.1rem;
+    vertical-align: middle;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  /* Default: responsive columns for smaller screens */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+}
+
+/* For larger screens (e.g., desktops), explicitly set 3 columns */
+@media (min-width: 992px) { /* Adjust breakpoint as needed, 992px is a common lg breakpoint */
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  }
+}
+
+/* You might want a 2-column layout for medium screens (tablets) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  }
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  flex-direction: column; /* Ensure items stack vertically */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center text */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.15);
+}
+
+.card-icon {
+  font-size: 2.5rem; /* Increased icon size */
+  margin-bottom: 0.75rem; /* Space below icon */
+}
+
+.card-title {
+  font-size: 1.2rem; /* Slightly larger title */
+  font-weight: 600; /* Bolder title */
+  margin-bottom: 0.5rem; /* Space below title */
+}
+
+.card-description {
+  font-size: 0.85rem; /* Smaller font size for description */
+  color: #666; /* Lighter text color for description */
+  line-height: 1.4; /* Adjust line height for readability */
+}
+
+/* Dark Mode Card Description */
+body.dark-mode .card-description {
+  color: #adb5bd; /* Lighter gray for dark mode descriptions */
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  /* Default: responsive columns for smaller screens */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+}
+
+/* For larger screens (e.g., desktops), explicitly set 3 columns */
+@media (min-width: 992px) { /* Adjust breakpoint as needed, 992px is a common lg breakpoint */
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  }
+}
+
+/* You might want a 2-column layout for medium screens (tablets) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+  }
+}
+
+footer.footer {
+  text-align: center;
+  padding: 1rem;
+  background: #f3f4f6;
+  /* margin-top: 2rem; Removed, flexbox will handle spacing */
+  transition: background-color 0.3s, color 0.3s;
+  width: 100%; /* Ensure footer spans full width */
+}
+
+textarea {
+  width: 100%;
+  height: 400px;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  resize: vertical;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+.back-btn {
+  margin-top: 1rem;
+  display: inline-block;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) { /* Adjusted breakpoint for better dropdown handling */
+  .nav-links {
+    display: none; 
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px; /* Adjust based on your navbar height */
+    left: 0;
+    background-color: #1f2937; 
+    padding: 1rem 0;
+  }
+
+  body.dark-mode .nav-links {
+    background-color: #111827; /* Darker background for mobile menu in dark mode */
+  }
+
+  .nav-links.active {
+    display: flex; 
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .dropdown-content {
+    position: static; /* Make dropdowns flow in mobile menu */
+    display: none; /* Initially hidden, controlled by JS or :hover for non-touch */
+    background-color: transparent;
+    box-shadow: none;
+    min-width: auto;
+  }
+
+  .dropdown:hover .dropdown-content,
+  .dropdown.active .dropdown-content { /* For JS toggle on mobile */
+    display: block;
+  }
+
+  .dropdown-content a {
+    padding: 10px 20px;
+    color: white; /* Ensure text is visible */
+  }
+
+  body.light-mode .dropdown-content a {
+      color: white; /* Still white on dark background of mobile nav */
+  }
+  body.light-mode .dropdown-content a:hover {
+      background-color: #374151;
+  }
+
+  body.dark-mode .dropdown-content a {
+      color: #f9fafb;
+  }
+  body.dark-mode .dropdown-content a:hover {
+      background-color: #374151;
+  }
+
+  .hamburger-menu {
+    display: block; 
+  }
+}
+
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+ /* this line use for footer (privacy,contact ) */
+.footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* this line code are used to heading or paragraph for (all letter pages) */
+.page-heading {
+  padding: 2rem 1rem;
+  text-align: center;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.page-heading h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+}
+
+.page-heading p {
+  margin-top: 0.5rem;
+  color: #666;
+}
+
+/* Dark mode support */
+body.dark-mode .page-heading h1,
+body.dark-mode .page-heading p {
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .page-heading h1 {
+    font-size: 32px;
+  }
+}

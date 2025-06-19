@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📄Application for New Ration Card Letter</title>
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body class="light-mode"> <!-- Added default mode -->
+  <div id="header-placeholder"></div> <!-- it use header.html called for header-->
+  <main class="container">
+ <section class="page-heading">
+   <h1>📄Application for New Ration Card Letter</h1> <!-- 👈 pages heading  --> 
+    <p>Fill the Ration card information  and download as PDF</p>  
+</section>
+    <textarea id="letterContent">
+To,  
+The Food & Civil Supplies Officer,  
+[Department Address],  
+[District/City Name]  
+
+Subject: Request for Issuance of New Ration Card  
+
+Respected Sir/Madam,  
+
+I am [Your Name], residing at [Your Full Address]. 
+I am writing to apply for a new ration card for my family. 
+We do not possess any existing ration card and are eligible for one as per the government norms.  
+
+Details of Family Members:  
+1. [Name – Age – Relation]  
+2. [Name – Age – Relation]  
+(You can add more as per your family)  
+
+I am enclosing the following documents for your kind consideration:  
+- Proof of residence (Aadhaar card/Electricity bill, etc.)  
+- ID proof of all family members  
+- Passport-size photographs  
+
+Kindly consider my request and issue a new ration card at the earliest.  
+
+Thanking you,  
+
+Yours faithfully,  
+[Your Name]  
+[Contact Number]  
+[Signature]  
+[Date]
+
+    </textarea>
+
+    <button onclick="downloadLetter('New_Ration_card.pdf')">⬇️ Download PDF</button><br/>
+    <a href="../index.html" class="back-btn">← Back to Home</a>
+  </main>
+  <footer class="footer">
+    <p>© 2025 LetterBuilder All rights reserved. | <a href="/privacy.html">privacy </a> <a href="mailto:tanweer32100@gmail.com"> Contact</a>
+    </a></p>
+  </footer>
+ 
+<script src="../js/headerLoader.js"></script>
+    <script src="../js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <!-- <script src="../script.js"></script> -->
+</body>
+</html>

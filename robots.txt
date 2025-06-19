@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://letterbuilder.org/sitemap.xml
